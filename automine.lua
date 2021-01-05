@@ -1,16 +1,18 @@
 local bl_bool, bl_str = turtle.inspectDown()
 
-while(bl_str ~= "minecraft:bedrock")
+while(bl_str.name ~= "minecraft:bedrock")
 do
-    if(bl_str == "minecraft:lava" or "minecraft:water" or "minecraft:flowing_lava" or "minecraft:flowing_water")
+    if(bl_str.name == "minecraft:stone" or "minecraft:water" or "minecraft:flowing_lava" or "minecraft:flowing_water")
     then
+        turtle.down()
         for i = 1, 4, 1
         do
             if(turtle.detect())
-            do
+            then
                 turtle.place()
             end
-            turtle.turnLeft()
-        end
+    end
+    turtle.digDown()
     turtle.down()
+end
 end
